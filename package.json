@@ -1,0 +1,33 @@
+{
+    "name": "@stealthstudios/sdk-client-ts",
+    "version": "0.1.0",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "build": "tsup",
+        "lint": "eslint --fix --quiet src/**/*.ts --config eslint.config.ts",
+        "format": "prettier --write src/**/*.ts",
+        "ci:prettier": "prettier --check src/**/*.ts",
+        "ci:tsc": "tsc --noEmit"
+    },
+    "files": [
+        "src"
+    ],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "@eslint/js": "^9.17.0",
+        "prettier": "^3.4.2",
+        "eslint": "^9.18.0",
+        "eslint-plugin-unused-imports": "^4.1.4",
+        "jiti": "^2.4.2",
+        "tsup": "^8.3.5",
+        "typescript": "^5.7.3",
+        "typescript-eslint": "^8.20.0"
+    },
+    "dependencies": {
+        "axios": "^1.7.9",
+        "openblox": "^1.0.59"
+    }
+}
