@@ -1,7 +1,7 @@
 import { ConversationWrapper, SDKData } from "./wrapper.js";
 import Character from "./character.js";
 
-export default class ChatbotInterface {
+export default class StealthClient {
     private apiWrapper: ConversationWrapper;
 
     constructor(data: SDKData) {

@@ -50,16 +50,21 @@ export default class Character {
         );
     }
 
-    async getConversation(user: User): Promise<Conversation> {
+    async getConversation(
+        user: User,
+        persistenceToken?: string,
+    ): Promise<Conversation> {
         for (const conversation of this.conversations) {
             if (conversation.containsPlayer(user)) {
                 return conversation;
             }
         }
 
-        const conversationData = await this.wrapper.create(this.character, [
-            user,
-        ]);
+        const conversationData = await this.wrapper.create(
+            this.character,
+            [user],
+            persistenceToken,
+        );
 
         if (!conversationData) {
             throw new Error("Failed to create conversation");
@@ -76,13 +81,11 @@ export default class Character {
     }
 
     async executeFunctions(
-        playerId: number,
+        playerId: string,
         conversation: Conversation,
-        response: {
-            calls?: Array<{ name: string; parameters: Record<string, any> }>;
-        },
+        calls?: Array<{ name: string; parameters: Record<string, any> }>,
     ): Promise<void> {
-        if (response && response.calls) {
+        if (calls) {
             const character: any = this.character;
 
             if (!character || !character.functions) {
@@ -95,7 +98,7 @@ export default class Character {
                 return;
             }
 
-            for (const call of response.calls) {
+            for (const call of calls) {
                 const { name, parameters } = call;
                 const func = functionLocation.find((f: any) => f.name === name);
 

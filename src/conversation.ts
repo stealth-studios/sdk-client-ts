@@ -37,10 +37,18 @@ export class Conversation {
     }
 
     async send(
-        id: number,
+        userId: string,
         message: string,
         context?: Record<string, any>,
-    ): Promise<{ flagged: boolean; content: string } | null> {
+    ): Promise<{
+        flagged: boolean;
+        cancelled: boolean;
+        content: string;
+        calls: {
+            name: string;
+            parameters: Record<string, any>;
+        }[];
+    } | null> {
         return this.wrapper.send(
             {
                 id: this.id,
@@ -48,7 +56,7 @@ export class Conversation {
             },
             message,
             context,
-            id,
+            userId,
         );
     }
 
@@ -64,7 +72,7 @@ export class Conversation {
         });
     }
 
-    containsPlayer(player: { id: number }): boolean {
+    containsPlayer(player: { id: string }): boolean {
         return this.users.some((user) => user.id === player.id);
     }
 

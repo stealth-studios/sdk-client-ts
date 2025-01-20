@@ -1,0 +1,24 @@
+{
+    "name": "stealthsdk-ts-example",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "tsx src/index.ts --outDir dist",
+        "dev": "nodemon src/index.ts --exec tsx --outDir dist",
+        "lint": "eslint --fix --quiet src/**/*.ts --config eslint.config.ts",
+        "format": "prettier --write src/**/*.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "@stealthstudios/sdk-client-ts": "1.0.0",
+        "discord.js": "^14.17.3",
+        "dotenv": "^16.4.7"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.9",
+        "tsx": "^4.19.2"
+    }
+}

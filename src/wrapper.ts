@@ -19,7 +19,7 @@ export interface FunctionParameter {
 }
 
 export interface User {
-    id: number; // Unique user ID
+    id: string; // Unique user ID
     name: string; // User name
 }
 
@@ -61,12 +61,10 @@ export class ConversationWrapper {
     }
 
     async create(
-        _character: any,
+        character: any,
         users: User[] = [],
         persistenceToken?: string,
     ): Promise<ConversationData | null> {
-        const character = JSON.parse(JSON.stringify(_character));
-
         try {
             const response = await axios.post(
                 `${this.wrapperData.url}/api/create`,
@@ -74,7 +72,6 @@ export class ConversationWrapper {
                     persistenceToken,
                     character,
                     users,
-                    functions: _character.functions,
                 },
                 { headers: { Authorization: this.wrapperData.auth } },
             );
@@ -97,8 +94,16 @@ export class ConversationWrapper {
         conversation: ConversationData,
         message: string,
         context: Context = {},
-        id: number,
-    ): Promise<{ flagged: boolean; content: string } | null> {
+        userId: string,
+    ): Promise<{
+        flagged: boolean;
+        cancelled: boolean;
+        content: string;
+        calls: {
+            name: string;
+            parameters: Record<string, any>;
+        }[];
+    } | null> {
         if (context.datastores) {
             const datastoresData = context.datastores;
             delete context.datastores;
@@ -167,7 +172,7 @@ export class ConversationWrapper {
                         ? this.formatDictionary(context)
                         : [],
                     message,
-                    playerId: id,
+                    playerId: userId,
                 },
                 { headers: { Authorization: this.wrapperData.auth } },
             );
