@@ -13,7 +13,7 @@ _Integrate with the Stealth SDK using TypeScript!_
 
 ## 📖 Documentation
 
-You may view the documentation for this library [here](https://google.com/docs/client/ts)!
+You may view the documentation for this library [here](https://docs.stealthsdk.com/clients/typescript)!
 
 ## 🤝 Contributing
 
