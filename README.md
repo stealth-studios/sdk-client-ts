@@ -5,9 +5,9 @@
 _Integrate with the Stealth SDK using TypeScript!_
 
 [![CI Status](https://github.com/stealth-studios/sdk-client-ts/actions/workflows/ci-ts.yaml/badge.svg)](https://github.com/stealth-studios/sdk-client-ts/actions/workflows/ci-ts.yaml)
-[![License](https://img.shields.io/github/license/stealth-studios/sdk-client-ts)](https://github.com/stealth-studios/sdk-client-ts/blob/main/LICENSE)
-[![npm version](https://img.shields.io/npm/v/@stealthstudios/sdk-client-ts)](https://www.npmjs.com/package/@stealthstudios/sdk-client-ts)
-[![npm downloads](https://img.shields.io/npm/dm/@stealthstudios/sdk-client-ts)](https://www.npmjs.com/package/@stealthstudios/sdk-client-ts)
+[![License](https://img.shields.io/github/license/stealth-studios/sdk-client-ts?)](https://github.com/stealth-studios/sdk-client-ts/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/@stealthstudios/sdk-client-ts?)](https://www.npmjs.com/package/@stealthstudios/sdk-client-ts)
+[![npm downloads](https://img.shields.io/npm/dm/@stealthstudios/sdk-client-ts?)](https://www.npmjs.com/package/@stealthstudios/sdk-client-ts)
 
 </div>
 
