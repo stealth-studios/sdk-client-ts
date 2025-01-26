@@ -13,12 +13,12 @@ export default class Character {
     }
 
     async createConversation(
-        user: User,
+        users: User[],
         persistenceToken?: string,
     ): Promise<Conversation> {
         const conversationData = await this.wrapper.create(
             this.character,
-            [user],
+            users,
             persistenceToken,
         );
 
@@ -32,7 +32,7 @@ export default class Character {
             this.wrapper,
         );
 
-        newConversation.addUser(user);
+        newConversation.users = users;
         this.conversations.push(newConversation);
 
         return newConversation;

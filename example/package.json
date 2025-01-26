@@ -13,7 +13,7 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
-        "@stealthstudios/sdk-client-ts": "1.0.0",
+        "@stealthstudios/sdk-client-ts": "1.1.1",
         "discord.js": "^14.17.3",
         "dotenv": "^16.4.7"
     },

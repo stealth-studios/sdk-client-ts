@@ -1,7 +1,8 @@
 {
     "name": "@stealthstudios/sdk-client-ts",
-    "version": "1.0.0",
-    "main": "src/index.js",
+    "version": "1.1.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "description": "Integration for StealthSDK with TypeScript",
     "type": "module",
     "scripts": {
@@ -9,13 +10,13 @@
         "lint": "eslint --fix --quiet src/**/*.ts --config eslint.config.ts",
         "format": "prettier --write src/**/*.ts",
         "ci:prettier": "prettier --check src/**/*.ts",
-        "ci:tsc": "tsc --noEmit"
+        "ci:tsc": "tsc --noEmit",
+        "prepack": "npm run build"
     },
     "files": [
-        "src"
+        "dist"
     ],
-    "author": "",
-    "license": "ISC",
+    "license": "MIT",
     "devDependencies": {
         "@eslint/js": "^9.17.0",
         "prettier": "^3.4.2",

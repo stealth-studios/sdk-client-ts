@@ -5,10 +5,9 @@ import {
     Partials,
     TextChannel,
 } from "discord.js";
-import StealthClient from "@stealthstudios/sdk-client-ts";
+import StealthClient, { Conversation } from "@stealthstudios/sdk-client-ts";
 
 import "dotenv/config";
-import { Conversation } from "@stealthstudios/sdk-client-ts/src/conversation";
 
 // Create a new Discord.js client
 const client = new Client({
@@ -130,10 +129,12 @@ client.on(Events.MessageCreate, async (message) => {
 
     if (!conversation) {
         conversation = {
-            conversation: await character.createConversation({
-                id: message.author.id,
-                name: message.author.displayName,
-            }),
+            conversation: await character.createConversation([
+                {
+                    id: message.author.id,
+                    name: message.author.displayName,
+                },
+            ]),
             channel: message.channel as TextChannel,
             lastMessageId: message.id,
         };

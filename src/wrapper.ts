@@ -186,22 +186,25 @@ export class ConversationWrapper {
         }
     }
 
-    async update(
+    async update<T extends object>(
         conversation: ConversationData,
-        users: User[] = [],
+        users: User[] | undefined = undefined,
+        character: T | undefined = undefined,
     ): Promise<boolean> {
         try {
             await axios.post(
                 `${this.wrapperData.url}/api/update`,
-                { secret: conversation.secret, users },
+                { secret: conversation.secret, users, character },
                 { headers: { Authorization: this.wrapperData.auth } },
             );
+
             return true;
         } catch (error) {
             console.warn(
                 `Failed to update conversation ${conversation.id}:`,
                 (error as Error).message,
             );
+
             return false;
         }
     }

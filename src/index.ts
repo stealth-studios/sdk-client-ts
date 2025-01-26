@@ -1,5 +1,6 @@
 import { ConversationWrapper, SDKData } from "./wrapper.js";
 import Character from "./character.js";
+import { Conversation } from "conversation.js";
 
 export default class StealthClient {
     private apiWrapper: ConversationWrapper;
@@ -12,3 +13,5 @@ export default class StealthClient {
         return new Character(character, this.apiWrapper);
     }
 }
+
+export type { Conversation, Character };

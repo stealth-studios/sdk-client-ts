@@ -1,3 +1,4 @@
+import Character from "character.js";
 import type { ConversationWrapper, User } from "./wrapper.js";
 
 export class Conversation {
@@ -33,6 +34,17 @@ export class Conversation {
                 secret: this.secret,
             },
             this.users,
+        );
+    }
+
+    async updateCharacter(character: Character) {
+        await this.wrapper.update(
+            {
+                id: this.id,
+                secret: this.secret,
+            },
+            this.users,
+            character.character as object,
         );
     }
 
