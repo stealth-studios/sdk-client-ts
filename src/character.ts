@@ -80,6 +80,14 @@ export default class Character {
         return newConversation;
     }
 
+    async updateSelf(self: Character): Promise<void> {
+        this.character = self.character;
+
+        for (const conversation of this.conversations) {
+            await conversation.updateCharacter(self);
+        }
+    }
+
     async executeFunctions(
         playerId: string,
         conversation: Conversation,

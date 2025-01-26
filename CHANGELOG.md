@@ -1,3 +1,7 @@
+# 1.1.1
+
+- Add `updateSelf` method on the `Character` class. This method will update all current conversations with the new character and pass the new character to any new conversations.
+
 # 1.1.0
 
 - Added support for backend version 1.1.0
