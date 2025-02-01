@@ -93,8 +93,8 @@ const character = stealthClient.createCharacter({
     functions: [
         {
             name: "react",
-            description: "Reacts to a message with a smiley face.",
-            parameters: {},
+            description: "Reacts to a message with a smiley face. Only do this when the user specifically asks for it.",
+            parameters: [],
             callback: async (_: Conversation, playerId: string) => {
                 const conversationData = conversations[playerId];
                 const message = await conversationData.channel.messages.fetch(
@@ -102,7 +102,7 @@ const character = stealthClient.createCharacter({
                 );
 
                 if (message) {
-                    message.react("👍");
+                    message.react("🙂");
                 }
             },
         },
