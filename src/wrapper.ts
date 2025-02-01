@@ -85,6 +85,10 @@ export class ConversationWrapper {
             console.warn(
                 "Failed to create conversation:",
                 (error as Error).message,
+                ((error as any).response &&
+                    (error as any).response.data &&
+                    (error as any).response.data.message) ||
+                    "No error message specified",
             );
             return null;
         }
@@ -181,6 +185,10 @@ export class ConversationWrapper {
             console.warn(
                 `Failed to send message to conversation ${conversation.id}:`,
                 (error as Error).message,
+                ((error as any).response &&
+                    (error as any).response.data &&
+                    (error as any).response.data.message) ||
+                    "No error message specified",
             );
             return null;
         }
@@ -203,6 +211,10 @@ export class ConversationWrapper {
             console.warn(
                 `Failed to update conversation ${conversation.id}:`,
                 (error as Error).message,
+                ((error as any).response &&
+                    (error as any).response.data &&
+                    (error as any).response.data.message) ||
+                    "No error message specified",
             );
 
             return false;
@@ -221,6 +233,10 @@ export class ConversationWrapper {
             console.warn(
                 `Failed to finish conversation ${conversation.id}:`,
                 (error as Error).message,
+                ((error as any).response &&
+                    (error as any).response.data &&
+                    (error as any).response.data.message) ||
+                    "No error message specified",
             );
             return false;
         }
