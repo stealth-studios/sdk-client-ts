@@ -10,7 +10,7 @@ It can optionally be expanded to support ROBLOX Data Stores through the Open Clo
 
 - Node.js (recommended v23 or above)
 - Discord Bot Token
-- Running Stealth backend
+- Running Stealth backend (This example assumes you are running the Basic Framework)
 
 ## Installation
 
